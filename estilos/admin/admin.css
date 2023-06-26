@@ -1,0 +1,143 @@
+@import url(../global/global.css);
+
+.hero{
+    padding: 2vw 5vw;
+}
+
+.admin-contenido {
+    display: grid;
+    row-gap: 5vh;
+}
+
+.admin-contenido .casa {
+    display: grid;
+    grid-template-areas: "imagen informacion";
+    border-radius: 0.5vw;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px rgba(221, 221, 211, 0.3);
+}
+
+.admin-contenido .casa .casa-contenido {
+    display: grid;
+    column-gap: 2vw;
+    justify-items: center;
+    padding: 0.5vw 1vw 1vw;
+    width: 60vw;
+}
+
+.admin-contenido .casa .casa-imagen {
+    display: flex;
+    grid-area: imagen;
+    position: relative;
+}
+
+.admin-contenido .casa .casa-contenido {
+    grid-area: informacion;
+    display: grid;
+    grid-template-areas:
+        "titulo boton"
+        "info boton";
+    column-gap: 2vw;
+    justify-items: center;
+    padding: 0.5vw 1vw 1vw;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-contenido .casa-contenido .casa-titulo {
+    grid-area: titulo;
+}
+
+.admin-contenido .casa-contenido .casa-boton {
+    grid-area: boton;
+}
+
+.admin-contenido .casa-contenido .casa-info {
+    grid-area: info;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1.2vw;
+    font-size: 1vw;
+}
+
+.admin-contenido .casa-boton-info a {
+    text-decoration: none;
+    color: black;
+    background-color: aquamarine;
+    padding: 0.5vw;
+    border-radius: 0.3vw;
+    font-size: 1.1vw;
+}
+
+.editar-informacion-datos .descripcion-casa textarea {
+    resize: none;
+  width: 300px;
+  height: 150px;
+}
+
+.admin-contenido .casa .tns-ovh {
+	height: 25vh;
+    width: 20vw;
+}
+
+.admin-contenido .modal .tns-ovh {
+	height: 40vh;
+	width: 35vw;
+}
+
+.modal .modal-editar-cabecera{
+    display: grid;
+    grid-template-areas: 
+    "boton boton"
+    "titulo titulo";
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-cabecera-titulo{
+    grid-area: titulo;
+    margin-left: 3vw;
+}
+
+.modal-cabecera-boton{
+    grid-area: boton;
+}
+
+.modal .modal-editar-cuerpo{
+    display: grid;
+    grid-template-areas: 
+    "imagen contenido";
+    align-items: center;
+    justify-content: space-around;
+}
+
+.modal-editar-cuerpo .modal-cuerpo-imagen{
+    grid-area: imagen;
+}
+
+.modal-editar-cuerpo .modal-cuerpo-contenido{
+    grid-area: contenido;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5vw;
+}
+
+.modal-cuerpo-contenido .secundario{
+    display: flex;
+    column-gap: 2vw;
+}
+
+.modal-editar-pie{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.modal-editar-cuerpo .modal-cuerpo-contenido .terceario textarea{
+    width: 30vw;
+    height: 15vh;
+    resize: none;
+}
+
+

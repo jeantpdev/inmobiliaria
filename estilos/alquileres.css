@@ -1,0 +1,164 @@
+@import url(global/global.css);
+
+.hero{
+    padding: 2vw 0;
+}
+
+.modal .modal-cuerpo{
+	display: grid;
+    grid-template-areas:
+        "imagen contenido"
+        "detalles detalles";
+    justify-content: center;
+}
+
+.modal-cuerpo .modal-detalles {
+    grid-area: detalles;
+    display: grid;
+}
+
+.modal-cuerpo .modal-cuerpo-imagen {
+    grid-area: imagen;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-cuerpo .modal-cuerpo-contenido {
+    grid-area: contenido;
+    display: grid;
+    grid-template-areas:
+        "titulo"
+        "descripcion";
+    justify-content: start;
+    grid-template-rows: auto;
+    row-gap: 2vw;
+}
+
+.modal-cuerpo .modal-cuerpo-contenido .modal-titulo {
+    grid-area: titulo;
+}
+
+.modal-cuerpo .modal-cuerpo-contenido .descripcion-casa {
+    grid-area: descripcion;
+    word-wrap: break-word;
+    display: grid;
+    row-gap: 0.5vw;
+}
+
+.modal-cuerpo-contenido .descripcion-casa p {
+    font-size: 1vw;
+    letter-spacing: 1px;
+}
+
+.modal-cuerpo-contenido .modal-titulo h2 {
+    font-size: 2vw;
+}
+
+.modal-cuerpo-contenido .descripcion-casa .descripcion-casa-subtitulo{
+    color: #4e4e4e;
+    font-size: 1.2vw;
+}
+
+.modal-cuerpo-contenido .descripcion-casa .descripcion-casa-parrafo {
+    width: 35vw;
+    height: 35vh;
+    overflow-y: auto;
+}
+
+.modal-cuerpo .modal-detalles .detalles {
+    display: flex;
+    padding: 0 1vw;
+    flex-direction: column;
+    column-gap: 2vw;
+    font-size: 1vw;
+    width: 70vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: wrap;
+    height: 20vh;
+    row-gap: 0.5vw;
+}
+
+.modal .modal-pie{
+	display: grid;
+    justify-content: end;
+    align-content: center
+}
+
+.alquileres-contenido .casa-contenido .casa-info {
+	display: flex;
+	flex-direction: row;
+	column-gap: 1.2vw;
+	font-size: 1vw;
+}
+
+.alquileres-contenido {
+	display: grid;
+	grid-area: contenido;
+	justify-content: center;
+	row-gap: 5vh;
+}
+
+.alquileres-contenido .casa {
+	display: grid;
+	grid-template-areas:
+		"imagen informacion";
+	grid-template-columns: 20vw 50vw;
+	grid-template-rows: auto;
+	align-items: center;
+	align-content: center;
+	border-radius: 0.5vw;
+	text-align: center;
+	background-color: #fff;
+	padding: 0 1vw;
+	height: 40vh;
+	width: 70vw;
+	box-shadow: 0px 0px 30px rgba(221, 221, 211, 0.3);
+}
+
+.alquileres-contenido .casa .casa-imagen {
+	grid-area: imagen;
+}
+
+.alquileres-contenido .casa .casa-contenido {
+	grid-area: informacion;
+}
+
+.alquileres-contenido .casa .casa-contenido {
+	display: grid;
+	grid-template-areas:
+		"titulo info boton";
+	align-items: center;
+	justify-content: space-between;
+	column-gap: 2vw;
+	justify-items: center;
+	padding: 0.5vw 1vw 1vw;
+}
+
+.alquileres-contenido .casa .casa-titulo {
+	grid-area: titulo;
+}
+
+.alquileres-contenido .casa .casa-info {
+	grid-area: info;
+}
+
+.alquileres-contenido .casa .casa-boton {
+	grid-area: boton;
+}
+
+.alquileres-contenido .casa-titulo .casa__titulo {
+	font-size: 1.7vw;
+	font-weight: 600;
+}
+
+.alquileres-contenido .casa .tns-ovh {
+	height: 25vh;
+	width: auto;
+}
+
+.alquileres-contenido .modal .tns-ovh {
+	height: 40vh;
+	width: 30vw;
+}
+

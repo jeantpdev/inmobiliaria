@@ -1,0 +1,174 @@
+@import url(global/global.css);
+
+.hero {
+    display: grid;
+    grid-template-areas:
+        "principal"
+        "servicios"
+        "alquileres"
+        "acerca-de";
+}
+
+.servicios-contenedor,
+.acerca-de-contenedor {
+    padding: 2vw 5vw;
+}
+
+.principal-contenedor {
+    grid-area: principal;
+}
+
+.servicios-contenedor {
+    grid-area: servicios;
+}
+
+.alquileres-contenedor {
+    grid-area: alquileres;
+}
+
+.acerca-de-contenedor {
+    grid-area: acerca-de;
+}
+/* PRINCIPAL-CONTENIDO INICIO*/
+
+.principal-contenido {
+    background: url(../img/apartamento.webp);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.principal-contenido .informacion-principal {
+    position: inherit;
+    bottom: 0;
+    padding: 0;
+}
+
+.informacion-principal .informacion-principal-contenido {
+    text-align: center;
+    background-color: #fffffff0;
+    padding: 2vw 5vw;
+    opacity: 0.90;
+}
+
+.informacion-principal-contenido h1 {
+    color: #141111;
+    font-size: 70px;
+    line-height: 84px;
+    font-weight: 700;
+    padding-bottom: 22px;
+}
+
+.informacion-principal-contenido p {
+    margin: 20px;
+    color: #2d2d2d;
+    line-height: 30px;
+    font-weight: 500;
+    padding-bottom: 0px;
+}
+
+/* PRINCIPAL-CONTENIDO FIN*/
+
+
+/*CONTENIDO CASA*/
+.alquileres-contenido {
+    display: flex;
+    column-gap: 1vw;
+    row-gap: 2vw;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.alquileres-contenido .casa {
+    display: grid;
+    grid-template-areas:
+        "imagen"
+        "informacion";
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    border-radius: 0.5vw;
+    text-align: center;
+    background-color: #ffffff;
+    height: 70vh;
+    box-shadow: 0px 0px 30px rgba(221, 221, 211, 0.3);
+}
+
+.casa .casa-imagen {
+    grid-area: imagen;
+}
+
+.casa .casa-contenido {
+    grid-area: informacion;
+}
+
+.casa .casa-contenido {
+    display: grid;
+    justify-items: center;
+    padding: 0.5vw 1vw 1vw;
+}
+
+.casa-contenido .casa-info {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1.2vw;
+    font-size: 1vw;
+}
+
+.casa-titulo {
+    width: 25vw;
+}
+
+.casa-titulo .casa__titulo {
+    font-size: 1.7vw;
+    font-weight: 600;
+}
+
+.tns-ovh {
+    width: 30vw;
+    height: 40vh;
+}
+
+/*ACERCA DE - INICIO*/
+
+.acerca-de-contenido {
+    display: grid;
+    grid-template-areas:
+        "informacion mapa";
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    align-items: center;
+}
+
+.acerca-de-contenido .mapa {
+    grid-area: mapa;
+    height: 60vh;
+}
+
+.acerca-de-contenido .informacion-mapa-contenedor .informacion-mapa-contenido {
+    display: grid;
+    grid-template-areas:
+        "titulo"
+        "descripcion";
+    justify-items: center;
+    align-items: center;
+}
+
+.informacion-mapa-contenido  .informacion-titulo {
+    grid-area: titulo;
+}
+
+.informacion-mapa-contenido  .informacion-descripcion {
+    grid-area: descripcion;
+    text-align: center;
+}
+
+.informacion-mapa-contenido  .informacion-imagen {
+    grid-area: imagen;
+}
+
+/*ACERCA DE - FIN*/
