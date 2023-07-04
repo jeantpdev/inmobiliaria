@@ -90,11 +90,11 @@ const Vista = {
             <div class="modal-imagenes-slider"></div>
         </div>
     
-          <div class="modal-detalles">
+          <div class="modal-cuerpo-detalles">
             <div class="detalles">
-              <p class="descripcion"><i class="fa-solid fa-bed"></i> Huespedes: ${element.huespedes_alquiler}</p>
-              <p class="descripcion"><i class="fa-solid fa-toilet"></i> Baños: ${element.baños_alquiler}</p>
-              <p class="descripcion"><i class="fa-solid fa-kitchen-set"></i> Cocina: ${element.cocina_alquiler}</p>
+              <p class="descripcion"><i class="fa-solid fa-bed fa-1x"></i> Huespedes: ${element.huespedes_alquiler}</p>
+              <p class="descripcion"><i class="fa-solid fa-toilet fa-1x"></i> Baños: ${element.baños_alquiler}</p>
+              <p class="descripcion"><i class="fa-solid fa-kitchen-set fa-1x"></i> Cocina: ${element.cocina_alquiler}</p>
             </div>
           </div>
     
@@ -202,6 +202,7 @@ const Vista = {
         this.cerrarModal();
         
       });
+    
 
       contenidoAlquileres.append(contenidoPropiedad);
     }

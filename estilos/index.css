@@ -12,7 +12,7 @@
 .servicios-contenedor,
 .acerca-de-contenedor {
     padding: 2vw 5vw;
-}
+} 
 
 .principal-contenedor {
     grid-area: principal;
@@ -132,6 +132,97 @@
     width: 30vw;
     height: 40vh;
 }
+
+/*MODAL - INICIO*/
+
+.modal .modal-cuerpo{
+	display: grid;
+    grid-template-areas:
+        "imagen contenido"
+        "detalles detalles";
+    justify-content: center;
+}
+
+.modal-cuerpo .modal-cuerpo-detalles {
+    grid-area: detalles;
+    display: grid;
+}
+
+.modal-cuerpo .modal-cuerpo-imagen {
+    grid-area: imagen;
+    display: flex;
+    justify-content: start;
+}
+
+.modal-cuerpo .modal-cuerpo-contenido {
+    grid-area: contenido;
+    display: grid;
+    grid-template-areas:
+        "titulo"
+        "descripcion";
+    justify-content: start;
+    grid-template-rows: auto;
+    row-gap: 2vw;
+}
+
+.modal-cuerpo .modal-cuerpo-contenido .modal-titulo {
+    grid-area: titulo;
+}
+
+.modal-cuerpo .modal-cuerpo-contenido .descripcion-casa {
+    grid-area: descripcion;
+    word-wrap: break-word;
+    display: grid;
+    row-gap: 0.5vw;
+}
+
+.modal-cuerpo-contenido .descripcion-casa p {
+    font-size: 1vw;
+    letter-spacing: 1px;
+}
+
+.modal-cuerpo-contenido .modal-titulo h2 {
+    font-size: 2vw;
+}
+
+.modal-cuerpo-contenido .descripcion-casa .descripcion-casa-subtitulo{
+    color: #4e4e4e;
+    font-size: 1.2vw;
+}
+
+.modal-cuerpo-contenido .descripcion-casa .descripcion-casa-parrafo {
+    width: 35vw;
+    height: 35vh;
+    overflow-y: auto;
+}
+
+.modal-cuerpo .modal-cuerpo-detalles .detalles {
+    display: flex;
+    padding: 0 1vw;
+    flex-direction: column;
+    column-gap: 2vw;
+    font-size: 1vw;
+    width: 70vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: wrap;
+    height: 20vh;
+    row-gap: 0.5vw;
+}
+
+.modal-cuerpo-detalles .detalles .descripcion{
+    display: flex;
+    column-gap: 1vw;
+}
+
+.modal .modal-pie{
+	display: grid;
+    justify-content: end;
+    align-content: center
+}
+
+/*MODAL - FIN*/
+
 
 /*ACERCA DE - INICIO*/
 

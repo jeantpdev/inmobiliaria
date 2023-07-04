@@ -12,7 +12,7 @@
     justify-content: center;
 }
 
-.modal-cuerpo .modal-detalles {
+.modal-cuerpo .modal-cuerpo-detalles {
     grid-area: detalles;
     display: grid;
 }
@@ -20,7 +20,7 @@
 .modal-cuerpo .modal-cuerpo-imagen {
     grid-area: imagen;
     display: flex;
-    justify-content: center;
+    justify-content: start;
 }
 
 .modal-cuerpo .modal-cuerpo-contenido {
@@ -65,7 +65,7 @@
     overflow-y: auto;
 }
 
-.modal-cuerpo .modal-detalles .detalles {
+.modal-cuerpo .modal-cuerpo-detalles .detalles {
     display: flex;
     padding: 0 1vw;
     flex-direction: column;
@@ -77,6 +77,11 @@
     flex-wrap: wrap;
     height: 20vh;
     row-gap: 0.5vw;
+}
+
+.modal-cuerpo-detalles .detalles .descripcion{
+    display: flex;
+    column-gap: 1vw;
 }
 
 .modal .modal-pie{

@@ -130,14 +130,14 @@ const Modelo = {
 
     },
 
-    async modificarDatosAlquiler(idAlquiler, tituloAlquiler, huespedesSelect, bañosSelect, cocinaSelect, disponibilidadAlquiler, descripcionAlquiler) {
+    async modificarDatosAlquiler(idAlquiler, tituloAlquiler, huespedesSelect, bañosSelect, cocinaSelect, descripcionAlquiler) {
         const datos_modificar = {
             id: idAlquiler,
             nombre_alquiler: tituloAlquiler,
             huespedes_alquiler: huespedesSelect,
             baños_alquiler: bañosSelect,
             cocina_alquiler: cocinaSelect,
-            disponibilidad_alquiler: disponibilidadAlquiler,
+            disponibilidad_alquiler: "Si",
             descripcion_alquiler: descripcionAlquiler,
         }
 
@@ -164,11 +164,21 @@ const Controlador = {
         }
     },
 
-    async getDatosApartamentoModificar(idAlquiler, tituloAlquiler, huespedesSelect, bañosSelect, cocinaSelect, disponibilidadAlquiler, descripcionAlquiler) {
+    async modificarAlquiler (modalContent) {
+
+        // idAlquiler, tituloAlquiler, huespedesSelect, bañosSelect, cocinaSelect, disponibilidadAlquiler, descripcionAlquiler
+        const idAlquiler = modalContent.querySelector('.modal-cabecera .modal-cabecera-titulo #idAlquiler').textContent
+        const tituloAlquiler = modalContent.querySelector('.modal-cuerpo .modal-cuerpo-contenido .principal #tituloAlquiler').value
+        const huespedesSelect = modalContent.querySelector('.modal-cuerpo .modal-cuerpo-contenido .secundario .huespedes-casa #huespedesSelect').value
+        const bañosSelect = modalContent.querySelector('.modal-cuerpo .modal-cuerpo-contenido .secundario .baños-casa #bañosSelect').value
+        const cocinaSelect = modalContent.querySelector('.modal-cuerpo .modal-cuerpo-contenido .secundario .cocina-casa #cocinaSelect').value
+        const descripcionAlquiler = modalContent.querySelector('.modal-cuerpo .modal-cuerpo-contenido .terceario .descripcion-casa #descripcionAlquiler').value
+
         try {
-            const res = await Modelo.modificarDatosAlquiler(idAlquiler, tituloAlquiler, huespedesSelect, bañosSelect, cocinaSelect, disponibilidadAlquiler, descripcionAlquiler);
+            await Modelo.modificarDatosAlquiler(idAlquiler, tituloAlquiler, huespedesSelect, bañosSelect, cocinaSelect, descripcionAlquiler);
+
             let mensaje = "Los datos fueron modificados"
-            Vista.mostrarAlertaSatisfactorio(mensaje);
+            console.log(mensaje)
         } catch (err) {
             console.log(err);
         }
@@ -240,7 +250,7 @@ const Vista = {
           </div>
   
           <div class="casa-boton">
-              <button id="btnAbrirModal" class="btn-mas-informacion-casas btn-primario">Mas información</button>
+              <button id="btnAbrirModal" class="btn-mas-informacion-casas btn-primario">Editar</button>
           </div>
   
       </div>
@@ -268,9 +278,9 @@ const Vista = {
 
         modalContent.innerHTML = `
         <div class="modal-cabecera modal-editar-cabecera">
-        <div class="modal-cabecera-boton">
-            <span class="btn-cerrar-modal cerrar-modal-informacion" id="cerrarModal">&times;</span>
-        </div>
+            <div class="modal-cabecera-boton">
+                <span class="btn-cerrar-modal cerrar-modal-informacion" id="cerrarModal">&times;</span>
+            </div>
     
         <div class="modal-cabecera-titulo">
             <h2>Editar apartamento</h2>
@@ -355,7 +365,7 @@ const Vista = {
     </div>
     
     <div class="modal-pie modal-editar-pie">
-        <button id="btnEditarDatosModal">Editar</button>
+        <button id="btnEditarDatosModal">Actualizar</button>
         <button id="btnEliminarDatosModal">Eliminar</button>
     </div>
       `;
@@ -377,13 +387,24 @@ const Vista = {
         const modalContent = modal.querySelector('.modal-contenido');
 
         modalContent.innerHTML = `
-        <div class="modal-cuerpo">
+        <div class="modal-cabecera modal-agregar-cabecera">
+            <div class="modal-agregar-cabecera-boton">
+                <span class="btn-cerrar-modal cerrar-modal-informacion" id="cerrarModal">&times;</span>
+            </div>
+
+            <div class="modal-agregar-titulo">
+                <h2>Agregar apartamento</h2>
+            </div>
+
+        </div>
+
+        <div class="modal-cuerpo modal-agregar-cuerpo">
             <div class="modal-cuerpo-imagen" id="modalImagenes"></div>
             <!-- Agrega un contenedor para el slider -->
             <div class="modal-imagenes-slider"></div>
         </div>
         
-        <div class="modal-cuerpo-contenido">
+        <div class="modal-cuerpo-contenido modal-contenido-cuerpo">
             <div class="principal">
                 <div class="titulo-casa">
                     <p>Titulo</p>
@@ -448,7 +469,7 @@ const Vista = {
             </div>
         </div>
         
-        <div class="modal-pie">
+        <div class="modal-pie modal-pie-cuerpo">
             <button id="btnInsertarDatosModal">Insertar</button>
             <button id="btnEliminarDatosModal">Eliminar</button>
         
@@ -498,7 +519,7 @@ const Vista = {
 
 
         botonAgregarContenido.addEventListener('click', () => {
-            this.abrirModal()
+            this.abrirModal();
             this.llenarModalContenido();
 
         });
@@ -522,6 +543,8 @@ const Vista = {
             botonAbrirModal.addEventListener('click', () => {
                 const modalContent = this.llenarModal(element);
                 const imagenesModal = modalContent.querySelector('.modal-imagenes-slider');
+                const btnEditarDatosModal = document.getElementById('btnEditarDatosModal');
+
                 this.agregarImagenesModal(imagenesModal, imagenesSeparadas);
 
                 // Inicializa el slider
@@ -533,6 +556,10 @@ const Vista = {
                 // Obtén el botón de cerrar modal y agrega el evento de clic
                 this.cerrarModal();
 
+                btnEditarDatosModal.onclick = function (){
+                    Controlador.modificarAlquiler(modalContent);
+                }
+
             });
 
             contenidoAlquileres.append(contenidoPropiedad);
@@ -543,20 +570,19 @@ const Vista = {
             this.carrouselImagenes(imagenesPropiedades);
         });
     },
-    /* PAGINA PRINCIPAL */
 
-    getDatosContenidoAgregar: function () {
-        const nombreAlquiler = document.getElementById('nombreAlquiler').value;
-        const huespedesAlquiler = document.getElementById('huespedesAlquiler').value;
-        const bañosAlquiler = document.getElementById('bañosAlquiler').value;
-        const cocinaAlquiler = document.getElementById('cocinaAlquiler').value;
-        const descripcionAlquiler = document.getElementById('descripcionAlquiler').value;
-        const imagenAlquiler = document.getElementById('imagenAlquiler').value;
+    getDatosContenidoAgregar: function (modalContent) {
 
-        return { nombreAlquiler, huespedesAlquiler, bañosAlquiler, cocinaAlquiler, descripcionAlquiler, imagenAlquiler };
+        const nombreAlquiler = modalContent.querySelector('.modal-cuerpo-contenido .principal .titulo-casa #tituloAlquiler').value
+        const huespedesAlquiler = modalContent.querySelector('.modal-cuerpo-contenido .secundario .huespedes-casa #huespedesSelect').value
+        const bañosAlquiler = modalContent.querySelector('.modal-cuerpo-contenido .secundario .baños-casa #bañosSelect').value
+        const cocinaAlquiler = modalContent.querySelector('.modal-cuerpo-contenido .secundario .cocina-casa #cocinaSelect').value
+        const descripcionAlquiler = modalContent.querySelector('.modal-cuerpo-contenido .terceario .descripcion-casa #descripcionAlquiler').value
+
+        return { nombreAlquiler, huespedesAlquiler, bañosAlquiler, cocinaAlquiler, descripcionAlquiler };
+
     },
 
-    /* MENSAJES DE ERRORES */
     mostrarMensajeError(mensaje) {
         console.log(mensaje);
     }

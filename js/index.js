@@ -47,7 +47,8 @@ const Vista = {
         <div class="casa">
     
         <div class="casa-imagen">
-          <div class="${disponibilidad_alquiler(element.disponibilidad_alquiler)}">${element.disponibilidad_alquiler}</div>
+       
+        <!-- <div class="${disponibilidad_alquiler(element.disponibilidad_alquiler)}">${element.disponibilidad_alquiler}</div>-->
           <div id="casaImagenes-${i}" class="casa-imagenes-slider"></div>
         </div>
     
@@ -91,48 +92,48 @@ const Vista = {
         const modalContent = modal.querySelector('.modal-contenido');
 
         modalContent.innerHTML = `
-            <div class="modal-cabecera">
-              <span class="btn-cerrar-modal cerrar-modal-informacion" id="cerrarModal">&times;</span>
+        <div class="modal-cabecera">
+          <span class="btn-cerrar-modal cerrar-modal-informacion" id="cerrarModal">&times;</span>
+        </div>
+    
+        <div class="modal-cuerpo">
+          <div class="modal-cuerpo-imagen" id="modalImagenes">
+            <!-- Agrega un contenedor para el slider -->
+            <div class="modal-imagenes-slider"></div>
+        </div>
+    
+          <div class="modal-cuerpo-detalles">
+            <div class="detalles">
+              <p class="descripcion"><i class="fa-solid fa-bed fa-1x"></i> Huespedes: ${element.huespedes_alquiler}</p>
+              <p class="descripcion"><i class="fa-solid fa-toilet fa-1x"></i> Baños: ${element.baños_alquiler}</p>
+              <p class="descripcion"><i class="fa-solid fa-kitchen-set fa-1x"></i> Cocina: ${element.cocina_alquiler}</p>
             </div>
-        
-            <div class="modal-cuerpo">
-              <div class="modal-cuerpo-imagen" id="modalImagenes">
-                <!-- Agrega un contenedor para el slider -->
-                <div class="modal-imagenes-slider"></div>
+          </div>
+    
+          <div class="modal-cuerpo-contenido">
+            <div class="modal-titulo">
+              <h2>${element.nombre_alquiler}</h2>
             </div>
-        
-              <div class="modal-detalles">
-                <div class="detalles">
-                  <p class="descripcion"><i class="fa-solid fa-bed"></i> Huespedes: ${element.huespedes_alquiler}</p>
-                  <p class="descripcion"><i class="fa-solid fa-toilet"></i> Baños: ${element.baños_alquiler}</p>
-                  <p class="descripcion"><i class="fa-solid fa-kitchen-set"></i> Cocina: ${element.cocina_alquiler}</p>
-                </div>
+    
+            <div class="descripcion-casa">
+
+              <div class="descripcion-casa-subtitulo">
+                <p>Descripcion:</p>
               </div>
-        
-              <div class="modal-cuerpo-contenido">
-                <div class="modal-titulo">
-                  <h2 class="modal__titulo">${element.nombre_alquiler}</h2>
-                </div>
-        
-                <div class="descripcion-casa">
-    
-                  <div class="descripcion-casa-subtitulo">
-                    <p>Descripcion:</p>
-                  </div>
-    
-                  <div class="descripcion-casa-parrafo">
-                    <p>${element.descripcion_alquiler}</p>
-                  </div>
-    
-                </div>
+
+              <div class="descripcion-casa-parrafo">
+                <p>${element.descripcion_alquiler}</p>
               </div>
+
             </div>
-        
-            <div class="modal-pie">
-            <a href="https://wa.me/573152702656" target="_blank"><button id="btnContactoDatosModal">Contactar</button></a>
-            </div>
-        `;
-        return modalContent
+          </div>
+        </div>
+    
+        <div class="modal-pie">
+        <a href="https://wa.me/573152702656" target="_blank"><button id="btnContactoDatosModal">Contactar</button></a>
+        </div>
+    `;
+    return modalContent
     },
 
     abrirModal: function () {
@@ -327,4 +328,5 @@ function separar_imagenes(imagenesACortar) {
 document.addEventListener('DOMContentLoaded', function () {
     Controlador.obtenerTodosAlquileres();
     mostrarMapas();
+    btn_whatsapp();
   })

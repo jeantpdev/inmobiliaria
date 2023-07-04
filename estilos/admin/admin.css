@@ -86,7 +86,7 @@
 	width: 35vw;
 }
 
-.modal .modal-editar-cabecera{
+.modal-editar-cabecera{
     display: grid;
     grid-template-areas: 
     "boton boton"
@@ -104,7 +104,7 @@
     grid-area: boton;
 }
 
-.modal .modal-editar-cuerpo{
+.modal-editar-cuerpo{
     display: grid;
     grid-template-areas: 
     "imagen contenido";
@@ -140,4 +140,18 @@
     resize: none;
 }
 
+.modal-agregar-cabecera{
+    display: grid;
+    grid-template-areas: 
+    "titulo boton";
+    justify-content: space-between;
+}
+
+.modal-agregar-titulo{
+    grid-area: titulo;
+} 
+
+.modal-agregar-cabecera-boton{
+    grid-area: boton;
+} 
 
